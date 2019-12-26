@@ -1,7 +1,8 @@
 /* 菜单列表 */
 .menu{
-  margin-top:80rpx;
   background:#fff;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx
 }
 .menu-item{
   display: flex;

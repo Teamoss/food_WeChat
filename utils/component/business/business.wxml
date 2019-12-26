@@ -1,0 +1,7 @@
+<!--utils/component/business/business.wxml-->
+<view class="container">
+  <view>
+    <text class="title">推荐商家</text>
+  </view>
+
+</view>

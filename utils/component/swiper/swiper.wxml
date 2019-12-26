@@ -1,0 +1,7 @@
+<swiper  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item catchtap="swiperToDetail" data-id="{{index}}">
+        <image src="{{item}}" class="slide-image" width="300" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>

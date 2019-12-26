@@ -12,7 +12,9 @@
     "utils/component/menu/menu",
     "pages/address/list/list",
     "pages/address/add/add",
-    "pages/address/update/update"
+    "pages/address/update/update",
+    "utils/component/swiper/swiper",
+    "utils/component/business/business"
   ],
   "window": {
     "backgroundTextStyle": "light",

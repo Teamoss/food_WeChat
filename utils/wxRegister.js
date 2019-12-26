@@ -1,11 +1,12 @@
-const wxRegister = (obj)=>{
+import Connect from './../service/address.js'
+const wxRegister = (user) => {
   wx.request({
-    url: 'http://127.0.0.1:8888/register',
+    url: Connect.register,
     method: 'POST',
     data: {
-      openid: obj.openid,
-      username: obj.username
-    },success(){
+      openid: user.openid,
+      userInfo: user.userInfo
+    }, success() {
       wx.hideLoading()
     }
   })
