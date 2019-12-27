@@ -1,6 +1,4 @@
 // utils/component/business/business.js
-import Connect from '../../../service/address.js'
-
 Page({
 
   /**
