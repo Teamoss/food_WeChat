@@ -24,14 +24,14 @@ page {
   /* align-items: center; */
   padding: 20rpx 20rpx 0rpx 20rpx;
   background-color: white;
-  height: 100%
+  height: 100%;
 }
 
 .image {
   width: 200rpx;
   height: 200rpx;
   flex: 2;
-  border-radius: 5rpx
+  border-radius: 5rpx;
 }
 
 .message {
@@ -44,24 +44,44 @@ page {
 
 .title {
   font-size: 16rpx;
-  color: #333333;
+  color: #333;
 }
 
 .flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
 
-}
 .icon {
-  width: 30rpx;
-  height: 30rpx;
-  margin-top: 3rpx
+  width: 32rpx;
+  height: 32rpx;
 }
+
 .number {
   color: orangered;
   margin-left: 6rpx;
 }
+
 .content {
-  color: gray
+  color: gray;
+}
+
+.noMore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.loading {
+  width: 60rpx;
+  height: 60rpx;
 }

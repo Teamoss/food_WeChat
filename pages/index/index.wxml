@@ -6,7 +6,7 @@
   </view>
   <view class="marginTop">
     <block wx:for="{{businesList}}" wx:key="{{index}}">
-      <view catchtap="toBusiness" data-id="{{index}}">
+      <view catchtap="toBusiness"  data-item="{{item}}" data-id="{{index}}">
         <view class="item">
           <image src="{{item.logo}}" class="image"></image>
           <view class="message">
@@ -15,9 +15,9 @@
               <text class="content">{{item.content}}</text>
             </view>
             <view class="flex">
-              <view>
+              <view class="row">
                 <image src="../../images/icon/xingxing.jpg" class="icon"></image>
-                <text class="number">4.8</text>
+                <text class="number">{{item.score}}</text>
               </view>
               <text class="content">地址:{{item.address}}</text>
             </view>
@@ -26,4 +26,11 @@
       </view>
     </block>
   </view>
+  <view class="noMore" wx:if="{{noMore}}">
+    <text class="content">没有更多了。。</text>
+  </view>
+   <view class="noMore" wx:if="{{loadingMore}}">
+      <image src="../../images/icon/loading.gif" class="loading"></image>
+  </view>
 </scroll-view>
+
