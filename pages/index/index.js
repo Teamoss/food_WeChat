@@ -135,11 +135,11 @@ Page({
 
   //点击列表跳转到商家详细页面
   toBusiness(e) {
-    console.log(e.currentTarget.dataset) 
-    // let id = event.currentTarget.dataset.id;
-    // wx.navigateTo({
-    //   url: '/pages/detail/detail?id=' + id,
-    // })
+    let business = e.currentTarget.dataset.item
+    let detail = JSON.stringify(business)
+    wx.navigateTo({
+      url: '/pages/business/business?detail=' + detail,
+    })
   },
 
 

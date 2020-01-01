@@ -22,7 +22,7 @@ page {
 .item {
   display: flex;
   /* align-items: center; */
-  padding: 20rpx 20rpx 0rpx 20rpx;
+  padding: 20rpx;
   background-color: white;
   height: 100%;
 }
