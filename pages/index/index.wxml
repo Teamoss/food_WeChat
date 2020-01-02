@@ -11,7 +11,7 @@
           <image src="{{item.logo}}" class="image"></image>
           <view class="message">
             <view class="flex">
-              <text class="title">{{item.business}}</text>
+              <text class="name">{{item.business}}</text>
               <text class="content">{{item.content}}</text>
             </view>
             <view class="flex">

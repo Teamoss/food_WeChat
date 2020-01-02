@@ -105,6 +105,7 @@ page {
   padding: 20rpx;
   border-color: blue;
   border-width: 5rpx;
+  background-color: white;
 }
 
 .car {
@@ -128,6 +129,10 @@ page {
   background-color: red;
   text-align: center;
   border-radius: 10rpx;
+  width:50%
+}
+.viewFlex {
+   flex:3;
 }
 
 .cashText {
@@ -137,9 +142,9 @@ page {
 .shopRow {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  margin-right: 200rpx;
+  flex:5;
 }
 
 .foodMenu {
@@ -159,6 +164,7 @@ page {
   margin-left: 30rpx;
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 .col {
@@ -178,17 +184,14 @@ page {
   margin-top: 10rpx;
 }
 
-.price {
-  color: red;
-}
-
 .bottom {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .decr {
-  margin-left: 230rpx;
+  margin-left: 150rpx;
   width: 40rpx;
   height: 40rpx;
   text-align: center;
@@ -207,4 +210,31 @@ page {
 .number {
   font-size: 32rpx;
   color: #333;
+}
+
+.noMore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  margin-bottom: 120rpx;
+}
+
+.loading {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  flex: 5;
+}
+
+.price {
+  color: red;
+}
+.viewpri {
+  flex: 2;
 }

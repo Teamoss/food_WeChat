@@ -8,5 +8,9 @@ const connect = {
   register: host + '/api/userRegister',
   //获取所有商家
   findAllBusiness: host + '/api/findAllBusiness',
+  //获取商家菜单
+  findAllFood: host + '/api/findAllFood',
+  //获取用户收货地址
+  getUserAddress: host + '/api/getUserAddress',
 }
 module.exports = connect

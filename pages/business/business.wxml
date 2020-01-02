@@ -1,50 +1,69 @@
-<view class="bg">
-  <image src="{{detail.swiper}}" class="swiper" />
-  <view class="container">
-    <view class="nameView">
-      <image src="../../images/icon/xingxing.jpg" class="logo"></image>
-      <text class="name">洞庭湖菜馆</text>
-    </view>
-    <view class="row">
-      <text class="adress">地址:999999999</text>
-      <view class="center">
-        <image src="../../images/icon/xingxing.jpg" class="icon"></image>
-        <text class="number">4.2</text>
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="scrolltolower" bindscroll="scroll" scroll-into-view="{{toView}}" lower-threshold="100">
+  <view class="bg">
+    <image src="{{detail.swiper}}" class="swiper" />
+    <view class="container">
+      <view class="nameView">
+        <image src="{{detail.logo}}" class="logo"></image>
+        <text class="name">{{detail.business}}</text>
       </view>
-    </view>
-    <text class="des">介绍：45465</text>
-  </view>
-  <view class="hotSaleView">
-    <image src="../../images/icon/hotSale.jpg" class="hotSale" />
-    <text>热销</text>
-  </view>
-  <view class="list">
-    <view class="item">
-      <image src="https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg" class="foodMenu" />
-      <view class="desc">
-        <view class="col">
-          <text class="title">皮皮虾</text>
-          <text class="message">皮皮虾皮皮虾皮皮虾</text>
-        </view>
-        <view class="bottom">
-          <text class="price">￥24.8</text>
-          <view class="decr">
-            <text>-</text>
-          </view>
-          <text class="number">{{goodNumber}}</text>
-          <view class="incre">
-            <text>+</text>
-          </view>
+      <view class="row">
+        <text class="adress">地址:{{detail.address}}</text>
+        <view class="center">
+          <image src="../../images/icon/xingxing.jpg" class="icon"></image>
+          <text class="number">{{detail.score}}</text>
         </view>
       </view>
+      <text class="des">介绍：{{detail.content}}</text>
+    </view>
+    <view class="hotSaleView">
+      <image src="../../images/icon/hotSale.jpg" class="hotSale" />
+      <text>热销</text>
+    </view>
+    <view class="list">
+      <block wx:for="{{goodList}}" wx:key="{{index}}">
+        <view data-item="{{item}}" data-id="{{index}}">
+          <view class="item">
+            <image src="{{item.imageUrl}}" class="foodMenu" />
+            <view class="desc">
+              <view class="col">
+                <text class="title">{{item.name}}</text>
+                <text class="message">{{item.description}}</text>
+              </view>
+              <view class="bottom">
+                <view class="viewpri">
+                  <text class="price">￥{{item.price}}</text>
+                </view>
+                <view class="btn">
+                  <view catchtap="decrNumber" data-item="{{item}}" class="decr">
+                    <text>-</text>
+                  </view>
+                  <text class="number">{{item.number}}</text>
+                  <view catchtap="increNumber" data-item="{{item}}" class="incre">
+                    <text>+</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="noMore" wx:if="{{noMore}}">
+      <text class="content">没有更多了。。</text>
+    </view>
+    <view class="noMore" wx:if="{{loadingMore}}">
+      <image src="../../images/icon/loading.gif" class="loading"></image>
     </view>
   </view>
-  <view class="shopCar">
-    <view class="shopRow">
-      <image src="../../images/icon/shopCar.png" class="car" />
-      <text class="centerText">您已选中<text class="good">0</text>件商品</text>
-    </view>
-    <view class="cashView" catchtap="cashMoney">
+</scroll-view>
+
+<view class="shopCar">
+  <view class="shopRow">
+    <image src="../../images/icon/shopCar.png" class="car" />
+    <text class="centerText">您已选中<text class="good">{{goodSum}}</text>件商品</text>
+  </view>
+  <view class="viewFlex" catchtap="cashMoney">
+    <view class="cashView">
       <text class="cashText">去结账</text>
     </view>
   </view>

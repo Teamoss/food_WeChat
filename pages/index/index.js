@@ -1,6 +1,6 @@
 const app = getApp()
 const wxAuth = require('../../utils/wxAuth.js')
-const wxLogin = require('../../utils/wxLogin.js');
+const wxLogin = require('../../utils/wxLogin.js')
 import Connect from '../../service/address.js'
 
 Page({
@@ -86,7 +86,6 @@ Page({
         console.log(err);
       }
     })
-
   },
 
 

@@ -1,41 +1,48 @@
-.address-list{
-  background:#fff;
+.address-list {
+  background: #fff;
 }
-.address-item{
+
+.address-item {
   position: relative;
   height: 132rpx;
   padding: 20rpx;
   box-sizing: border-box;
-  border-bottom:2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
 }
-.address-item:last-child{
+
+.address-item:last-child {
   border-bottom: none;
 }
-.address-item .detail{
+
+.address-item .detail {
   color: #333;
   font-size: 30rpx;
   margin-bottom: 10rpx;
 }
-.address-item image{
-  position:absolute;
-  width:50rpx;
-  height:50rpx;
-  right:20rpx;
-  top:50%;
-  margin-top:-25rpx;
+
+.address-item image {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right: 20rpx;
+  top: 50%;
+  margin-top: -25rpx;
 }
-.surname,.gender,.phone{
+
+.surname, .gender, .phone {
   color: #666;
   font-size: 30rpx;
 }
-.surname{
+
+.surname {
   margin-right: 30rpx;
 }
-.gender{
+
+.gender {
   margin-right: 50rpx;
 }
 
-.add{
+.add {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -44,15 +51,30 @@
   line-height: 90rpx;
   font-size: 32rpx;
   color: #333;
-  text-align:center;
+  text-align: center;
 }
-.add text{
-  display:inline-block;
-  vertical-align:middle;
+
+.add text {
+  display: inline-block;
+  vertical-align: middle;
 }
-.add image{
-  width:50rpx;
-  height:50rpx;
-  vertical-align:text-top;
-  margin-right:20rpx;
+
+.add image {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: text-top;
+  margin-right: 20rpx;
+}
+
+.noAddress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 400rpx;
+}
+
+.content {
+  color: gray;
+  font-size: 26rpx;
 }

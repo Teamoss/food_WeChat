@@ -2,8 +2,7 @@
   "navigationBarTitleText": "首页",
   "usingComponents": {
     "swiper": "../../utils/component/swiper/swiper",
-    "menu": "../../utils/component/menu/menu",
-    "business": "../../utils/component/business/business"
+    "menu": "../../utils/component/menu/menu"
   },
-  "navigationBarBackgroundColor": "#ffffff"
+  "navigationBarBackgroundColor": "#f7d373"
 }

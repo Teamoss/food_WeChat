@@ -10,7 +10,10 @@
       </view>
     </view>
   </view>
-  <view class='add' hover-class='none' bindtap="addAddr" >
+  <view class="noAddress" wx:if="{{noAdress}}">
+    <text class="content">暂无地址，赶紧去添加吧~~~~~</text>
+  </view>
+  <view class='add' hover-class='none' bindtap="addAddr">
     <image src="../../../images/plus.png"></image>
     <text>新增收获地址</text>
   </view>

@@ -1,33 +1,67 @@
-import Address from '../../../api/address.js';
+import Connect from '../../../service/address.js'
 const app = getApp()
 Page({
   data: {
+    noAdress: false,
+    addressList: []
+  },
+
+  onLoad(options) {
+    wx.getStorage({
+      key: 'userInfo',
+      success: res => {
+        let id = res.data.openid
+        this.getAdressList(id)
+      },
+    })
+  },
+
+  onShow() {
 
   },
-  onLoad: function (options) {
-    
-  },
-  onShow(){
-    this.getList(app.globalData.userInfo.id);
-  },
-  getList(id){
-    let that = this;
-    (new Address()).list({uid:id}).then((res)=>{
-      that.setData({
-        list:res
-      })
+
+  //加载地址列表
+  getAdressList(id) {
+    wx.request({
+      url: Connect.getUserAddress,
+      method: 'POST',
+      data: {
+        id
+      },
+      success: res => {
+        let addressList = res.data.data
+        if (addressList.length == 0) {
+          this.setData({
+            noAdress: true
+          })
+        } else {
+          this.setData({
+            addressList
+          })
+        }
+      },
+      fail: err => {
+        console.log(err);
+      }
     })
   },
-  addAddr(){
-    wx.redirectTo({
-      url:'../add/add'
+
+  addAddr() {
+    wx.navigateTo({
+      url: '../add/add'
     })
+    // wx.redirectTo({
+    //   url: '../add/add'
+    // })
   },
-  updateAddr(e){
+  updateAddr(e) {
     let data = e.currentTarget.dataset.info;
     app.globalData.updateAddr = data;
     wx.navigateTo({
       url: '../update/update'
     })
-  }
+  },
+
+
+
 })

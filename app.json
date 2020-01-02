@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/business/business",
+    "pages/address/list/list",
     "pages/index/index",
     "pages/logs/logs",
     "pages/center/center/center",
@@ -11,11 +11,10 @@
     "pages/authorization/authorization",
     "pages/login/login",
     "utils/component/menu/menu",
-    "pages/address/list/list",
     "pages/address/add/add",
     "pages/address/update/update",
-    "utils/component/swiper/swiper"
- 
+    "utils/component/swiper/swiper",
+    "pages/business/business"
   ],
   "window": {
     "backgroundTextStyle": "light",
