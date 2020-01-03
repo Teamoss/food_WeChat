@@ -3,32 +3,33 @@
   <view class='tr'>
     <view class='td-a'>联系人:</view>
     <view class='td-b'>
-      <input placeholder='请填写收货人的姓名'  data-key="name" value='{{address.name}}'></input>
+      <input placeholder='请填写收货人的姓名' bindinput='getInput'  data-key="name" value='{{name}}'></input>
     </view>
   </view>
   <view class='tr'>
     <view class='td-a'></view>
     <view class='td-b'>
       <radio-group bindchange="chooseGender">
-        <radio color="#f7d373" checked="{{address.gender==1}}" value='1'></radio><text class='gender'>先生</text>
-        <radio color="#f7d373" value='0' checked="{{address.gender==0}}"></radio><text class='gender'>女士</text>
+        <radio color="#f7d373" checked="{{gender==1}}" value='1'></radio><text class='gender'>先生</text>
+        <radio color="#f7d373" value='0' checked="{{gender==0}}"></radio><text class='gender'>女士</text>
       </radio-group>
     </view>
   </view>
   <view class='tr'>
     <view class='td-a'>手机号:</view>
     <view class='td-b'>
-      <input placeholder='请填写收货人的手机号码' placeholder-class='placeholder' bindinput='getInput' data-key="phone" value="{{address.phone}}"></input>
+      <input placeholder='请填写收货人的手机号码' placeholder-class='placeholder' bindinput='getInput' data-key="phone" value="{{phone}}"></input>
     </view>
   </view>
   <view class='tr'>
     <view class='td-a'>收货地址:</view>
     <view class='td-b'>
-      <input placeholder='请填写收货人的地址' bindinput='getInput' data-key="addr" value="{{address.addr}}"></input>
+      <input placeholder='请填写收货人的地址' bindinput='getInput' data-key="address" value="{{address}}"></input>
     </view>
   </view>
   </view>
   <view class='btnView'>
-    <button plain='false' class='save' bindtap='addAddr'>保存地址</button>
+    <button plain='false' class='save' bindtap='editAddr'>保存地址</button>
+     <button plain='false' class='delete' bindtap='deleteAddr'>删除地址</button>
   </view>
 </view>

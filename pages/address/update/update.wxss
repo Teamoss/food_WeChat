@@ -37,3 +37,13 @@
   line-height: 78rpx;
   border: none;
 }
+
+.btnView button.delete{
+  margin:30rpx 40rpx 0;
+  background: lightsalmon;
+  font-size: 32rpx;
+  color: #333;
+  height: 78rpx;
+  line-height: 78rpx;
+  border: none;
+}

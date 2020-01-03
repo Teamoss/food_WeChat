@@ -9,9 +9,9 @@ Page({
 
   data: {
     imgUrls: [
-      '../../../images/swiper/01.jpg',
-      '../../../images/swiper/02.jpg',
-      '../../../images/swiper/04.jpg',
+      '../../../images/swiper/1.jpg',
+      '../../../images/swiper/2.jpg',
+      '../../../images/swiper/3.jpg',
     ],
     indicatorDots: true,
     autoplay: true,

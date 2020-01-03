@@ -6,6 +6,7 @@ page{
   height:132rpx;
   margin:75rpx auto 0;
   display:block;
+  border-radius: 50%
 }
 .logoTitle{
   color: #333;

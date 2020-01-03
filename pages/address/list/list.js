@@ -7,6 +7,10 @@ Page({
   },
 
   onLoad(options) {
+  
+  },
+
+  onShow() {
     wx.getStorage({
       key: 'userInfo',
       success: res => {
@@ -14,10 +18,6 @@ Page({
         this.getAdressList(id)
       },
     })
-  },
-
-  onShow() {
-
   },
 
   //加载地址列表
@@ -47,12 +47,12 @@ Page({
   },
 
   addAddr() {
-    wx.navigateTo({
-      url: '../add/add'
-    })
-    // wx.redirectTo({
+    // wx.navigateTo({
     //   url: '../add/add'
     // })
+    wx.redirectTo({
+      url: '../add/add'
+    })
   },
   updateAddr(e) {
     let data = e.currentTarget.dataset.info;

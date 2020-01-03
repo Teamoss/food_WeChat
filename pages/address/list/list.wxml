@@ -1,7 +1,7 @@
 <view class="page">
   <view class='address-list'>
-    <view class='address-item' wx:for="{{list}}" wx:key="{{item.id}}">
-      <view class='detail'>{{item.addr}}</view>
+    <view class='address-item' wx:for="{{addressList}}" wx:key="{{index}}">
+      <view class='detail'>{{item.address}}</view>
       <view>
         <text class="surname">{{item.name}}</text>
         <text class='gender'>{{item.gender==1?'先生':'女士'}}</text>
@@ -15,6 +15,6 @@
   </view>
   <view class='add' hover-class='none' bindtap="addAddr">
     <image src="../../../images/plus.png"></image>
-    <text>新增收获地址</text>
+    <text>添加收获地址</text>
   </view>
 </view>

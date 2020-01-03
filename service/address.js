@@ -12,5 +12,11 @@ const connect = {
   findAllFood: host + '/api/findAllFood',
   //获取用户收货地址
   getUserAddress: host + '/api/getUserAddress',
+  //添加用户收货地址
+  addUserAddress: host + '/api/addUserAddress',
+  //编辑用户收货地址
+  editUserAddress: host + '/api/editUserAddress',
+  //删除用户收货地址
+  deleteUserAddress: host + '/api/deleteUserAddress',
 }
 module.exports = connect

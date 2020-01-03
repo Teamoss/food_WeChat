@@ -1,34 +1,42 @@
 const app = getApp()
 const pattern = /^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8}$/;
-import Address from '../../../api/address.js'
+import Connect from '../../../service/address.js'
 Page({
   data: {
-
+    openid: null
   },
-  onLoad: function (options) {
-
+  onLoad() {
+    wx.getStorage({
+      key: 'userInfo',
+      success: res => {
+        let openid = res.data.openid
+        this.setData({
+          openid
+        })
+      },
+    })
   },
-  getInput(e){
+  getInput(e) {
     let k = e.currentTarget.dataset.key,
-        v = e.detail.value,
-        o = {};
+      v = e.detail.value,
+      o = {};
     o[k] = v;
     this.setData(o);
   },
-  chooseGender(e){
+  chooseGender(e) {
     this.setData({
-      gender:e.detail.value
+      gender: e.detail.value
     })
   },
-  showToast(str){
+  showToast(str) {
     wx.showToast({
       title: str,
-      icon:'none'
+      icon: 'none'
     })
   },
-  exam(){
+  exam() {
     let data = this.data;
-    if(!data.name){
+    if (!data.name) {
       this.showToast('请输入姓名')
       return false;
     }
@@ -40,7 +48,7 @@ Page({
       this.showToast('请选择性别')
       return false;
     }
-    if (!pattern.test(data.phone)){
+    if (!pattern.test(data.phone)) {
       this.showToast('请输入正确的手机号码')
       return false;
     }
@@ -50,25 +58,37 @@ Page({
     }
     return true;
   },
-  addAddr(){
+  addAddr() {
+    const {
+      openid
+    } = this.data
     let valid = this.exam();
-    if(!valid){
+    if (!valid) {
       return false;
     }
     let data = this.data;
-    
-    let param = {
-      addr:data.addr,
-      phone:data.phone,
-      name:data.name,
-      gender:data.gender,
-      uid:app.globalData.userInfo.id
-    };
-    (new Address()).add(param).then((res)=>{
-      this.showToast('添加地址成功');
-      wx.redirectTo({
-        url: '../list/list'
-      })
+    wx.request({
+      url: Connect.addUserAddress,
+      method: 'POST',
+      data: {
+        addr: data.addr,
+        phone: data.phone,
+        name: data.name,
+        gender: data.gender,
+        openid
+      },
+      success: res => {
+        if (res.data.code === 2000) {
+          this.showToast('保存成功')
+          wx.redirectTo({
+            url: '../list/list'
+          })
+        }
+      },
+      fail: err => {
+        console.log(err)
+      }
     })
+
   }
 })
