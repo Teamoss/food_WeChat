@@ -1,4 +1,6 @@
 import Connect from '../../service/address.js'
+const app = getApp()
+
 Page({
 
   /**
@@ -172,6 +174,9 @@ Page({
 
   //去结账
   cashMoney() {
-    console.log(21212)
+    // app.globalData.updateAddr = data;
+    wx.navigateTo({
+      url: '../cash/cash'
+    })
   }
 })

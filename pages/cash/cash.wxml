@@ -1,0 +1,60 @@
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}">
+  <view class="bg">
+    <view class="container">
+      <view class="flexRow" catchtap="selectAdress">
+        <view>
+          <view class="marginBottom">
+            <text class="address">哒哒哒哒哒哒</text>
+          </view>
+          <text class="name">哒哒哒(先生)  <text class="name">13068518223</text> </text>
+        </view>
+        <image src="../../images/icon/right.png" class="rightCir"></image>
+      </view>
+
+      <view class="listAdress" wx:if="{{showAdressList}}">
+        <view class="adressItem">
+         <radio color="#f7d373"  value='1' catchtap="selectAddr"></radio>
+          <view>
+            <view class="marginBottom">
+              <text class="address">哒哒哒哒哒哒</text>
+            </view>
+            <text class="name">哒哒哒(先生)  <text class="name">13068518223</text> </text>
+          </view>
+        </view>
+      </view>
+
+      <view class="line" />
+      <view class="flexRow">
+        <text class="address">送达时间</text>
+        <view class="flexRow">
+          <text class="time">约14:30送达</text>
+          <image src="../../images/icon/right.png" class="rightCir"></image>
+        </view>
+      </view>
+      <view class="line" />
+      <text class="address">鲍师傅</text>
+
+      <view class="list">
+        <view class="item">
+          <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIAtibsicGaUUAGpGr8yo5G7MibcxgUPUreak1h1MAlp2quibB9qXxuruTdVnepiavDz8Tu9OIruLHMb7A/132" class="foodImg" />
+          <text class="food">条藤猪肉</text>
+          <text class="number">x 1</text>
+          <text class="price">￥15</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 结算 -->
+<view class="cashView">
+  <view class="cashLeft">
+    <text class="text">合计 :<text class="money">￥55</text></text>
+  </view>
+  <view class="cashRight">
+    <view class="cashR">
+      <text class="cashText">确认支付</text>
+    </view>
+  </view>
+</view>

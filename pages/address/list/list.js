@@ -47,9 +47,6 @@ Page({
   },
 
   addAddr() {
-    // wx.navigateTo({
-    //   url: '../add/add'
-    // })
     wx.redirectTo({
       url: '../add/add'
     })

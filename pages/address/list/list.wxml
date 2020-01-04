@@ -15,6 +15,6 @@
   </view>
   <view class='add' hover-class='none' bindtap="addAddr">
     <image src="../../../images/plus.png"></image>
-    <text>添加收获地址</text>
+    <text>添加地址</text>
   </view>
 </view>

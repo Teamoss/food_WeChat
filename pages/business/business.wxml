@@ -64,7 +64,7 @@
   </view>
   <view class="viewFlex" catchtap="cashMoney">
     <view class="cashView">
-      <text class="cashText">去结账</text>
+      <text class="cashText">去结算</text>
     </view>
   </view>
 </view>
