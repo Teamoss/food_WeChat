@@ -7,9 +7,9 @@ Page({
     addressList: [],
     address: null,
     time: null,
-    orderList:[],
-    business:null,
-    sumMoney:null,
+    orderList: [],
+    business: null,
+    sumMoney: null,
   },
 
   onLoad(options) {
@@ -27,13 +27,20 @@ Page({
     })
   },
 
+  //确认支付
+  cashMoney() {
+    // wx.reLaunch({
+    //   url: '../cashSuccess/cashSuccess'
+    // })
+  },
+
   //加载订单
   loadingOrder() {
     let order = app.globalData.order
     let orderList = order.data
     let business = order.business
     let sumMoney = 0
-    orderList.forEach(item=>{
+    orderList.forEach(item => {
       sumMoney += item.number * item.price
     })
     this.setData({
@@ -95,12 +102,6 @@ Page({
     })
   },
 
-  //确认支付
-  cashMoney() {
-    wx.reLaunch({
-      url: '../cashSuccess/cashSuccess'
-    })
-  },
 
   //确定地址
   selectAdre(e) {

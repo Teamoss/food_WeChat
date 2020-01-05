@@ -178,7 +178,7 @@ Page({
     let order = {}
     goodList.forEach(item => {
       if (item.number > 0) {
-        arr.unshift(item)
+        arr.push(item)
       }
     })
     if (arr.length==0){

@@ -135,7 +135,6 @@ page {
 }
 
 .number {
-  margin-left: 280rpx;
   color: #333;
 }
 
@@ -184,7 +183,9 @@ page {
 }
 
 .orderLeft {
-  width: 70%
+  width: 70%;
+  display: flex;
+  align-items: center
 }
 
 .orderRight {
