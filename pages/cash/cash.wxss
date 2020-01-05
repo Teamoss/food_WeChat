@@ -26,6 +26,12 @@ page {
   height: 30rpx;
 }
 
+.transform {
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotate(90deg);
+}
+
 .address {
   color: black;
   font-weight: bold;
@@ -115,6 +121,10 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 20rpx;
+}
+
+.itemView {
   margin-bottom: 20prx;
   margin-top: 20rpx;
 }
@@ -142,4 +152,42 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
 }
+
+.selectIcon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.selectView {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f7d373;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.noSelectView {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #c1c1c1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.orderLeft {
+  width: 70%
+}
+
+.orderRight {
+  width: 30%
+}
+

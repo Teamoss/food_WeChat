@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/cashSuccess/cashSuccess",
+    "pages/index/index",
     "pages/cash/cash",
     "pages/address/list/list",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/center/center/center",
     "pages/order/list/list",

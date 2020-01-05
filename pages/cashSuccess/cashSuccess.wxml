@@ -1,0 +1,2 @@
+<!--pages/cashSuccess/cashSuccess.wxml-->
+<text bindtap='goIndex'>支付成功</text>

@@ -3,9 +3,6 @@ const app = getApp()
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     detail: null,
     goodList: [],
@@ -13,12 +10,10 @@ Page({
     pageNo: 1,
     noMore: false,
     loadingMore: false,
-    goodSum: 0
+    goodSum: 0,
+    id: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
     let detail = JSON.parse(options.detail)
     this.setData({
@@ -172,11 +167,33 @@ Page({
     })
   },
 
-  //去结账
+  //去结算
   cashMoney() {
-    // app.globalData.updateAddr = data;
+    const {
+      goodList,
+      id,
+      detail
+    } = this.data
+    let arr = []
+    let order = {}
+    goodList.forEach(item => {
+      if (item.number > 0) {
+        arr.unshift(item)
+      }
+    })
+    if (arr.length==0){
+      wx.showToast({
+        title: '请选择购买商品',
+        icon: 'none'
+      })
+      return
+    }
+    order["data"] = arr
+    order["business"] = detail
+    app.globalData.order = order;
     wx.navigateTo({
       url: '../cash/cash'
     })
   }
+
 })

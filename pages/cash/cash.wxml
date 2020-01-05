@@ -4,21 +4,33 @@
       <view class="flexRow" catchtap="selectAdress">
         <view>
           <view class="marginBottom">
-            <text class="address">哒哒哒哒哒哒</text>
+            <text class="address">{{address.address}}</text>
           </view>
-          <text class="name">哒哒哒(先生)  <text class="name">13068518223</text> </text>
+          <text class="name">{{address.name}}(先生)  <text class="name">{{address.phone}}</text> </text>
         </view>
-        <image src="../../images/icon/right.png" class="rightCir"></image>
+
+        <block>
+          <image wx:if="{{showAdressList==false}}" src=" ../../images/icon/right.png " class="rightCir " />
+          <image wx:else src="../../images/icon/right.png" class="transform" />
+        </block>
+
       </view>
 
-      <view class="listAdress" wx:if="{{showAdressList}}">
-        <view class="adressItem">
-         <radio color="#f7d373"  value='1' catchtap="selectAddr"></radio>
+      <view class="listAdress" wx:for="{{addressList}}" wx:key="{{index}}" wx:if="{{showAdressList}}">
+        <view class="adressItem" data-info='{{item}}' bindtap='selectAdre'>
+          <block>
+            <view class="selectView" wx:if="{{item.isSelect}}">
+              <image src="../../images/icon/whiteClick.png" class="selectIcon" />
+            </view>
+            <view class="noSelectView" wx:else>
+              <image src="../../images/icon/whiteClick.png" class="selectIcon" />
+            </view>
+          </block>
           <view>
             <view class="marginBottom">
-              <text class="address">哒哒哒哒哒哒</text>
+              <text class="address">{{item.address}}</text>
             </view>
-            <text class="name">哒哒哒(先生)  <text class="name">13068518223</text> </text>
+            <text class="name">{{item.name}}(先生)  <text class="name">{{item.phone}}</text> </text>
           </view>
         </view>
       </view>
@@ -27,19 +39,28 @@
       <view class="flexRow">
         <text class="address">送达时间</text>
         <view class="flexRow">
-          <text class="time">约14:30送达</text>
+          <picker mode="time" value="{{time}}" start="{{time}}" end="23:59" bindchange="bindTimeChange">
+            <view class="time">
+              当前选择: {{time}}
+            </view>
+          </picker>
           <image src="../../images/icon/right.png" class="rightCir"></image>
         </view>
       </view>
       <view class="line" />
-      <text class="address">鲍师傅</text>
+
+      <text class="address">{{business.business}}</text>
 
       <view class="list">
-        <view class="item">
-          <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIAtibsicGaUUAGpGr8yo5G7MibcxgUPUreak1h1MAlp2quibB9qXxuruTdVnepiavDz8Tu9OIruLHMb7A/132" class="foodImg" />
-          <text class="food">条藤猪肉</text>
-          <text class="number">x 1</text>
-          <text class="price">￥15</text>
+        <view class="item" wx:for="{{orderList}}" wx:key="{{index}}">
+          <view class="orderLeft">
+            <image src="{{item.imageUrl}}" class="foodImg" />
+            <text class="food">{{item.name}}</text>
+          </view>
+          <view class="orderRight">
+            <text class="number">x {{item.number}}</text>
+            <text class="price">￥ {{item.price}}</text>
+          </view>
         </view>
       </view>
 
@@ -50,10 +71,10 @@
 <!-- 结算 -->
 <view class="cashView">
   <view class="cashLeft">
-    <text class="text">合计 :<text class="money">￥55</text></text>
+    <text class="text">合计 :<text class="money">￥{{sumMoney}}</text></text>
   </view>
   <view class="cashRight">
-    <view class="cashR">
+    <view class="cashR" bindtap='cashMoney'>
       <text class="cashText">确认支付</text>
     </view>
   </view>
