@@ -1,8 +1,0 @@
-{
-  "usingComponents":{
-    "count":"../../utils/component/count/count"
-  },
-  "navigationBarBackgroundColor": "#333333",
-  "navigationBarTextStyle": "white",
-  "navigationBarTitleText": ""
-}
