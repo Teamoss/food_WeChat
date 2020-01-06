@@ -1,4 +1,5 @@
 import Connect from '../../service/address.js'
+import util from '../../utils/util.js'
 const app = getApp()
 
 Page({
@@ -29,9 +30,46 @@ Page({
 
   //确认支付
   cashMoney() {
-    // wx.reLaunch({
-    //   url: '../cashSuccess/cashSuccess'
-    // })
+    const {
+      address,
+      time,
+      orderList,
+      business,
+      sumMoney
+    } = this.data
+    let businessId = business._id
+    let orderTime = util.formatTime(new Date())
+    wx.request({
+      url: Connect.sendOrder,
+      method: 'POST',
+      data: {
+        businessId,
+        orderTime,
+        address,
+        time,
+        orderList,
+        sumMoney
+      },
+      success: res => {
+        if (res.data.code === 2000) {
+          let data = JSON.stringify(res.data.data)
+          wx.reLaunch({
+            url: '../cashSuccess/cashSuccess?orderInfo=' + data,
+          })
+        } else {
+          wx.showToast({
+            title: '支付失败，请稍后重试',
+            icon: 'none'
+          })
+        }
+      },
+      fail: err => {
+        wx.showToast({
+          title: '支付失败，请稍后重试',
+          icon: 'none'
+        })
+      }
+    })
   },
 
   //加载订单

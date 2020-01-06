@@ -18,5 +18,7 @@ const connect = {
   editUserAddress: host + '/api/editUserAddress',
   //删除用户收货地址
   deleteUserAddress: host + '/api/deleteUserAddress',
+  //用户下单
+  sendOrder: host + '/api/sendOrder',
 }
 module.exports = connect

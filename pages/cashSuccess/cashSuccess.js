@@ -5,7 +5,8 @@ Page({
   },
 
   onLoad(options) {
-
+    let orderInfo = JSON.parse(options.orderInfo)
+    console.log(orderInfo)
   },
 
   onShow() {

@@ -1,6 +1,5 @@
 const app = getApp()
-import Address from '../../../api/address.js';
-import Order from '../../../api/order.js';
+
 Page({
   data:{
     currentTab:1,
