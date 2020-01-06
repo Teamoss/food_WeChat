@@ -1,2 +1,14 @@
-<!--pages/cashSuccess/cashSuccess.wxml-->
-<text bindtap='goIndex'>支付成功</text>
+<view class="container">
+  <image src="../../images/icon/order.jpg" class="order" />
+  <view class="rightView">
+    <text class="title">订单支付成功</text>
+    <text class="orderNumber">订单号： {{order}}</text>
+    <text class="orderNumber"> 已付款：<text class="money">￥{{money}}</text></text>
+  </view>
+</view>
+
+<view class="viewbtn">
+  <view class="btn" bindtap='goIndex'>
+    <text class="text">确定</text>
+  </view>
+</view>

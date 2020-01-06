@@ -1,18 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/order/list/list",
+    "pages/cashSuccess/cashSuccess",
     "pages/cash/cash",
     "pages/address/list/list",
     "pages/center/center/center",
-    "pages/order/list/list",
-    "pages/order/submit/submit",
     "pages/login/login",
     "pages/address/add/add",
     "pages/address/update/update",
     "utils/component/swiper/swiper",
     "utils/component/menu/menu",
-    "pages/business/business",
-    "pages/cashSuccess/cashSuccess"
+    "pages/business/business"
   ],
   "window": {
     "backgroundTextStyle": "light",

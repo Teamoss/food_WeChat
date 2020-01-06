@@ -38,6 +38,8 @@ Page({
       sumMoney
     } = this.data
     let businessId = business._id
+    let businessName = business.business
+    let logo = business.logo
     let orderTime = util.formatTime(new Date())
     wx.request({
       url: Connect.sendOrder,
@@ -48,7 +50,9 @@ Page({
         address,
         time,
         orderList,
-        sumMoney
+        sumMoney,
+        businessName,
+        logo
       },
       success: res => {
         if (res.data.code === 2000) {
