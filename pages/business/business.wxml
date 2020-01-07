@@ -14,6 +14,7 @@
         </view>
       </view>
       <text class="des">介绍：{{detail.content}}</text>
+       <text class="des">联系方式：{{detail.phone}}</text>
     </view>
     <view class="hotSaleView">
       <image src="../../images/icon/hotSale.jpg" class="hotSale" />

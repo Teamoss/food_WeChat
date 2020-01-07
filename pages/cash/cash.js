@@ -1,4 +1,6 @@
 import Connect from '../../service/address.js'
+const wxAuth = require('../../utils/wxAuth.js')
+const wxLogin = require('../../utils/wxLogin.js')
 import util from '../../utils/util.js'
 const app = getApp()
 
@@ -25,6 +27,20 @@ Page({
         let id = res.data.openid
         this.getAdressList(id)
       },
+      fail: err => {
+        wxAuth(() => {
+          wxLogin((data) => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: data,
+            })
+          })
+        }, () => {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        });
+      }
     })
   },
 

@@ -1,5 +1,7 @@
 const app = getApp()
 import Connect from '../../../service/address.js'
+const wxAuth = require('../../../utils/wxAuth.js')
+const wxLogin = require('../../../utils/wxLogin.js')
 
 Page({
   data: {
@@ -56,6 +58,20 @@ Page({
         })
 
       },
+      fail: err => {
+        wxAuth(() => {
+          wxLogin((data) => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: data,
+            })
+          })
+        }, () => {
+          wx.navigateTo({
+            url: '../../login/login'
+          })
+        });
+      }
     })
   },
 
@@ -117,12 +133,15 @@ Page({
   //去评价
   toComment(e) {
     let item = e.currentTarget.dataset.item
-    // let order = JSON.stringify(item)
-    // let arr = JSON.parse(item.food) 
-    //  console.log(arr.length)
-    // wx.navigateTo({
-    //   url: '/pages/business/business?detail=' + detail,
-    // })
+    app.globalData.commentOrder = item;
+    wx.navigateTo({
+      url: '../../comment/comment'
+    })
+  },
+
+  //已评价
+  isComment(e) {
+    let item = e.currentTarget.dataset.item
   },
 
   //确认收货

@@ -34,6 +34,7 @@ page {
 .adress {
   color: #666;
   margin-bottom: 7rpx;
+  font-size: 26rpx
 }
 
 .center {
@@ -50,6 +51,7 @@ page {
 
 .des {
   color: #666;
+  font-size: 24rpx
 }
 
 .name {

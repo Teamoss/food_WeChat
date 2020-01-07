@@ -8,7 +8,7 @@
         <block>
           <view wx:if="{{item.status==0}}" class='orderStatu'>待接单</view>
           <view wx:elif="{{item.status==1}}" class='orderStatu1'>配送中</view>
-          <view wx:else class='orderStatu2'>已完成</view>
+          <view wx:else class='orderStatu2'>订单完成</view>
         </block>
       </view>
       <view class='listing'>
@@ -19,13 +19,14 @@
         </view>
       </view>
       <view class='total'>
-        <text>总计{{item.sumMoney}}元</text>
+        <text>总计￥{{item.sumMoney}}元</text>
       </view>
       <view class='order-item-buttom'>
         <text class="order">订单号: {{item._id}}</text>
         <block>
           <view wx:if="{{item.status==1}}" class='yellow'  catchtap="finishOrder" data-item="{{item}}">确认收货</view>
-          <view wx:elif="{{item.status==2}}" class='yellow' catchtap="toComment" data-item="{{item}}">去评价</view>
+          <view wx:elif="{{item.status==2 && item.commentStatus == 0}}" class='yellow' catchtap="toComment" data-item="{{item}}">去评价</view>
+           <view wx:elif="{{item.status==2 && item.commentStatus == 1}}" class='yellow' catchtap="isComment" data-item="{{item}}">已评价</view>
         </block>
       </view>
     </view>

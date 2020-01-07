@@ -1,4 +1,6 @@
 const app = getApp()
+const wxAuth = require('../../../utils/wxAuth.js')
+const wxLogin = require('../../../utils/wxLogin.js')
 
 Page({
   data: {
@@ -19,6 +21,20 @@ Page({
         this.setData({
           userInfo: res.data.userInfo
         })
+      },
+      fail: err => {
+        wxAuth(() => {
+          wxLogin((data) => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: data,
+            })
+          })
+        }, () => {
+          wx.navigateTo({
+            url: '../../login/login'
+          })
+        });
       }
     })
   },

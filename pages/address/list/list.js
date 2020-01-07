@@ -1,5 +1,8 @@
 import Connect from '../../../service/address.js'
+const wxAuth = require('../../../utils/wxAuth.js')
+const wxLogin = require('../../../utils/wxLogin.js')
 const app = getApp()
+
 Page({
   data: {
     noAdress: false,
@@ -7,7 +10,7 @@ Page({
   },
 
   onLoad(options) {
-  
+
   },
 
   onShow() {
@@ -17,6 +20,20 @@ Page({
         let id = res.data.openid
         this.getAdressList(id)
       },
+      fail: err => {
+        wxAuth(() => {
+          wxLogin((data) => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: data,
+            })
+          })
+        }, () => {
+          wx.navigateTo({
+            url: '../../login/login'
+          })
+        });
+      }
     })
   },
 

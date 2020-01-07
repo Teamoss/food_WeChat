@@ -1,11 +1,14 @@
 const app = getApp()
 const pattern = /^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8}$/;
+const wxAuth = require('../../../utils/wxAuth.js')
+const wxLogin = require('../../../utils/wxLogin.js')
 import Connect from '../../../service/address.js'
+
 Page({
   data: {
     openid: null
   },
-  onLoad() {
+  onShow() {
     wx.getStorage({
       key: 'userInfo',
       success: res => {
@@ -14,6 +17,20 @@ Page({
           openid
         })
       },
+      fail: err => {
+        wxAuth(() => {
+          wxLogin((data) => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: data,
+            })
+          })
+        }, () => {
+          wx.navigateTo({
+            url: '../../login/login'
+          })
+        });
+      }
     })
   },
   getInput(e) {
