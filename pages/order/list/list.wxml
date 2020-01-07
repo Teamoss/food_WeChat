@@ -3,16 +3,16 @@
   <view class='order-list'>
     <view class='order-item' wx:for="{{orderList}}" wx:key="{{index}}">
       <view class='order-item-head'>
-        <image src='{{item.logo}}' class="logo" />
-        <view class='storeName'>{{item.businessName}}</view>
+        <image src='{{item.business.logo}}' class="logo" />
+        <view class='storeName'>{{item.business.business}}</view>
         <block>
           <view wx:if="{{item.status==0}}" class='orderStatu'>待接单</view>
-          <view wx:elif="{{item.status==1}}" class='orderStatu1'>商家已接单</view>
-          <view wx:else class='orderStatu2'>订单已完成</view>
+          <view wx:elif="{{item.status==1}}" class='orderStatu1'>配送中</view>
+          <view wx:else class='orderStatu2'>已完成</view>
         </block>
       </view>
       <view class='listing'>
-        <view wx:for="{{item.food}}" wx:for-item="foodItem" wx:key="{{index}}" >
+        <view wx:for="{{item.food}}" wx:for-item="foodItem" wx:key="{{index}}" class="foodItem" >
           <image class="food" src='{{foodItem.imageUrl}}' />
           <text>{{foodItem.name}}</text>
           <text class='right'>x{{foodItem.number}}  ￥{{foodItem.price}}</text>

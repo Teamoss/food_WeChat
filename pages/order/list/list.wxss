@@ -10,34 +10,34 @@ page {
 
 .order-item-head {
   display: flex;
-  height: 100rpx;
+  height: 80rpx;
   align-items: center;
   border-bottom: 2rpx solid #eee;
 }
 
 .order-item-head image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
   margin: 0 16rpx 0 0rpx;
 }
 
 .order-item-head .storeName {
   color: #333;
-  font-size: 30rpx;
+  font-size: 26rpx;
   flex: 1;
 }
 
 .order-item-head .orderStatu {
   color: #ec1f1f;
-  font-size: 30rpx;
+  font-size: 26rpx;
 }
 .order-item-head .orderStatu1 {
   color: rgb(10, 149, 241);
-  font-size: 30rpx;
+  font-size: 26rpx;
 }
 .order-item-head .orderStatu2 {
   color: rgb(10, 241, 153);
-  font-size: 30rpx;
+  font-size: 26rpx;
 }
 
 .listing {
@@ -71,7 +71,6 @@ page {
 }
 
 .order-item-buttom {
-  height: 90rpx;
   display: flex;
   box-sizing: border-box;
   flex-direction: row;
@@ -85,7 +84,7 @@ page {
   width: 140rpx;
   line-height: 74rpx;
   vertical-align: middle;
-  margin: 19rpx 0;
+  margin: 10rpx 0;
   color: #333;
   font-size:26rpx;
   text-align: center;
@@ -114,11 +113,16 @@ page {
 .order {
   font-size: 24rpx;
   color: #999;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx
 }
 
 .logo {
   width:50rpx;
   height: 50rpx;
   border-radius: 50%;
+}
+.foodItem {
+  margin-bottom: 10rpx
 }
 

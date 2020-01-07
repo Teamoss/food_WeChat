@@ -10,12 +10,9 @@ Page({
     noMore: false,
     loadingMore: false
   },
-  onLoad(options) {
-    this.getOrderList()
-  },
 
   onShow() {
-
+    this.getOrderList()
   },
 
   //加载订单数据
@@ -33,8 +30,8 @@ Page({
           method: 'POST',
           data: {
             openid,
-            pageSize,
-            pageNo
+            pageSize: 8,
+            pageNo: 1,
           },
           success: res => {
             let orderList = res.data.data
