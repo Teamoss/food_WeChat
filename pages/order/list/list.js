@@ -142,11 +142,10 @@ Page({
   //已评价
   isComment(e) {
     let item = e.currentTarget.dataset.item
+    app.globalData.commentOrder = item;
+    wx.navigateTo({
+      url: '../../comment/updateComment/updateComment'
+    })
   },
-
-  //确认收货
-  finishOrder(e) {
-    let item = e.currentTarget.dataset.item
-  }
 
 })

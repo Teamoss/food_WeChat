@@ -22,5 +22,12 @@ const connect = {
   sendOrder: host + '/api/sendOrder',
   //获取用户所有订单
   findAllOrder: host + '/api/findAllOrder',
+  //提交评论
+  addComment: host + '/api/addComment',
+  //查找用户评论
+  findComment: host + '/api/findComment',
+  //修改评论
+  editComment: host + '/api/editComment',
+  
 }
 module.exports = connect

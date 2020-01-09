@@ -10,7 +10,7 @@
 </view>
 <view class="section">
   <form bindsubmit="bindFormSubmit">
-    <textarea placeholder="说说哪里好，其他顾客想知道" name="comment" maxlength='-1'/>
-    <button form-type="submit"class='btn'> 评论 </button>
+    <textarea value="{{comment}}" name="comment" maxlength='-1'/>
+    <button form-type="submit"class='btn'> 修改评论 </button>
   </form>
 </view>

@@ -10,7 +10,7 @@ page {
 
 .order-item-head {
   display: flex;
-  height: 80rpx;
+  height: 50rpx;
   align-items: center;
   border-bottom: 2rpx solid #eee;
 }
@@ -42,7 +42,7 @@ page {
 
 .listing {
   padding-left: 20rpx;
-  padding-top: 20rpx;
+  padding-top: 10rpx;
   box-sizing: border-box;
   color: #666;
   font-size: 30rpx;
@@ -60,29 +60,30 @@ page {
 
 .right {
   text-align: right;
+  font-size: 24rpx
 }
 
 .total {
   text-align: right;
   color: #666;
-  font-size: 30rpx;
-  border-bottom: 2rpx solid #eee;
-  padding-bottom: 16rpx;
+  /* font-size: 30rpx; */
+  /* border-bottom: 2rpx solid #eee; */
+  padding-bottom: 10rpx;
 }
 
 .order-item-buttom {
   display: flex;
   box-sizing: border-box;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: row-reverse;
+  /* justify-content: space-between; */
   align-items: center;
 }
 
 .order-item-buttom view {
   display: inline-block;
-  height: 70rpx;
-  width: 140rpx;
-  line-height: 74rpx;
+  height: 60rpx;
+  width: 120rpx;
+  line-height: 60rpx;
   vertical-align: middle;
   margin: 10rpx 0;
   color: #333;
@@ -113,8 +114,6 @@ page {
 .order {
   font-size: 24rpx;
   color: #999;
-  margin-bottom: 10rpx;
-  margin-top: 10rpx
 }
 
 .logo {
@@ -124,5 +123,14 @@ page {
 }
 .foodItem {
   margin-bottom: 10rpx
+}
+
+.orderView {
+  padding-top:10rpx ;
+  padding-bottom: 10rpx
+}
+
+.sumMoney {
+  font-size: 24rpx
 }
 

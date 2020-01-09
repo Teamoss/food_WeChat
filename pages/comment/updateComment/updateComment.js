@@ -1,12 +1,12 @@
 const app = getApp()
-const wxAuth = require('../../utils/wxAuth.js')
-const wxLogin = require('../../utils/wxLogin.js')
-import Connect from '../../service/address.js'
-import util from '../../utils/util.js'
+import Connect from '../../../service/address.js'
+
+import util from '../../../utils/util.js'
 
 Page({
 
   data: {
+    business: null,
     imgs: [{
       id: 1
     }, {
@@ -19,47 +19,51 @@ Page({
       id: 5
     }],
     starId: 0,
-    src1: '../../images/buitiful.png',
-    src2: '../../images/noBuitiful.png',
-    openid: null,
-    userInfo: null,
-    business: null,
-    orderId: null
+    src1: '../../../images/buitiful.png',
+    src2: '../../../images/noBuitiful.png',
+    comment: null,
+    commentId: null
   },
 
-
   onLoad(options) {
+
     let data = app.globalData.commentOrder
-    wx.getStorage({
-      key: 'userInfo',
-      success: res => {
-        this.setData({
-          openid: res.data.openid,
-          userInfo: res.data.userInfo,
-          business: data.business,
-          orderId: data._id
-        })
-      },
-      fail: err => {
-        wxAuth(() => {
-          wxLogin((data) => {
-            wx.setStorage({
-              key: 'userInfo',
-              data: data,
-            })
-          })
-        }, () => {
-          wx.navigateTo({
-            url: '../login/login'
-          })
-        });
-      }
+    let orderId = data._id
+    this.setData({
+      business: data.business
     })
+    this.getComment(orderId)
   },
 
 
   onShow() {
 
+  },
+
+  //获取评论内容
+  getComment(id) {
+    wx.request({
+      url: Connect.findComment,
+      method: 'POST',
+      data: {
+        id
+      },
+      success: res => {
+        if (res.data && res.data.code === 2000) {
+          let data = res.data.data
+          this.setData({
+            starId: data.score,
+            comment: data.comment,
+            commentId: data._id
+          })
+        }
+
+      },
+      fail: err => {
+        console.log(err)
+
+      }
+    })
   },
 
   //选择评分
@@ -73,14 +77,12 @@ Page({
     })
   },
 
-  //提交评论
+  //修改评论
   bindFormSubmit(e) {
+
     const {
       starId,
-      openid,
-      userInfo,
-      business,
-      orderId
+      commentId
     } = this.data
     let comment = e.detail.value.comment
     let commentTime = util.formatTime(new Date())
@@ -100,14 +102,11 @@ Page({
       return
     }
     wx.request({
-      url: Connect.addComment,
+      url: Connect.editComment,
       method: 'POST',
       data: {
         score: starId,
-        openid,
-        userInfo,
-        business: business._id,
-        order: orderId,
+        commentId,
         comment,
         commentTime
       },
@@ -129,7 +128,7 @@ Page({
         })
       }
     })
-  },
 
+  },
 
 })
