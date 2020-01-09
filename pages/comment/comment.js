@@ -112,6 +112,7 @@ Page({
         commentTime
       },
       success: res => {
+        console.log(res)
         if (res.data.code === 2000) {
           wx.showToast({
             title: res.data.message,

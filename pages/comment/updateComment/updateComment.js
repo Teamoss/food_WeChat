@@ -22,7 +22,8 @@ Page({
     src1: '../../../images/buitiful.png',
     src2: '../../../images/noBuitiful.png',
     comment: null,
-    commentId: null
+    commentId: null,
+    oldscore:null
   },
 
   onLoad(options) {
@@ -53,6 +54,7 @@ Page({
           let data = res.data.data
           this.setData({
             starId: data.score,
+            oldscore: data.score,
             comment: data.comment,
             commentId: data._id
           })
@@ -82,7 +84,9 @@ Page({
 
     const {
       starId,
-      commentId
+      commentId,
+      business,
+      oldscore
     } = this.data
     let comment = e.detail.value.comment
     let commentTime = util.formatTime(new Date())
@@ -106,9 +110,11 @@ Page({
       method: 'POST',
       data: {
         score: starId,
+        oldscore,
         commentId,
         comment,
-        commentTime
+        commentTime,
+        business: business._id
       },
       success: res => {
         if (res.data.code === 2000) {

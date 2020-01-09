@@ -55,6 +55,17 @@ Page({
     } = this.data
     let businessId = business._id
     let orderTime = util.formatTime(new Date())
+
+    if (!address) {
+      wx.navigateTo({
+        url: '../address/list/list',
+      })
+      wx.showToast({
+        title: '请添加收货地址',
+        icon: 'none'
+      })
+      return
+    }
     wx.request({
       url: Connect.sendOrder,
       method: 'POST',

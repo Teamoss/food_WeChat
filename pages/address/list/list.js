@@ -49,7 +49,8 @@ Page({
         let addressList = res.data.data
         if (addressList.length == 0) {
           this.setData({
-            noAdress: true
+            noAdress: true,
+            addressList:[]
           })
         } else {
           this.setData({
