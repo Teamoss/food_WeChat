@@ -1,0 +1,39 @@
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="scrolltolower" bindscroll="scroll" scroll-into-view="{{toView}}" lower-threshold="100">
+
+  <view class="container">
+
+    <view class="item" wx:for="{{commentList}}" wx:key="{{index}}">
+      <view class="header">
+        <image src="{{item.userInfo.avatarUrl}}" class='avator'></image>
+        <view class="headName">
+          <text>{{item.userInfo.nickName}}</text>
+          <view class='itembox'>
+            <view wx:for="{{imgs}}" wx:for-item="sourceItem" wx:key="{{item.id}}">
+              <image class="star" src="{{sourceItem.id>item.score?src2:src1}}"></image>
+            </view>
+          </view>
+        </view>
+        <text class="date">{{item.commentTime}}</text>
+      </view>
+      <view class="foodList">
+        <view wx:for="{{item.order.food}}" wx:key="{{index}}" wx:for-item="foodItem">
+          <text class="food">{{foodItem.name}}</text>
+        </view>
+      </view>
+      <view class="imgview">
+        <image wx:for="{{item.order.food}}" wx:key="{{index}}" wx:for-item="imgItem" src="{{imgItem.imageUrl}}" class='imgFood'></image>
+      </view>
+      <text class="comment">{{item.comment}}</text>
+
+    </view>
+
+
+    <view class="noMore" wx:if="{{noMore}}">
+      <text class="content">没有更多了。。</text>
+    </view>
+    <view class="noMore" wx:if="{{loadingMore}}">
+      <image src="../../../images/icon/loading.gif" class="loading"></image>
+    </view>
+  </view>
+
+</scroll-view>

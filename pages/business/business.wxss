@@ -34,7 +34,7 @@ page {
 .adress {
   color: #666;
   margin-bottom: 7rpx;
-  font-size: 26rpx
+  font-size: 26rpx;
 }
 
 .center {
@@ -44,14 +44,14 @@ page {
   justify-content: center;
 }
 
-.number {
+.numberS {
   color: #ff3b04;
   margin-left: 7rpx;
 }
 
 .des {
   color: #666;
-  font-size: 24rpx
+  font-size: 24rpx;
 }
 
 .name {
@@ -131,10 +131,11 @@ page {
   background-color: red;
   text-align: center;
   border-radius: 10rpx;
-  width:50%;
+  width: 50%;
 }
+
 .viewFlex {
-   flex:3;
+  flex: 3;
 }
 
 .cashText {
@@ -146,7 +147,7 @@ page {
   flex-direction: row;
   /* justify-content: center; */
   align-items: center;
-  flex:5;
+  flex: 5;
 }
 
 .foodMenu {
@@ -237,6 +238,28 @@ page {
 .price {
   color: red;
 }
+
 .viewpri {
   flex: 2;
+}
+
+.comment {
+  margin-left: 50rpx;
+}
+
+.hotView {
+  flex: 1;
+}
+
+.comment {
+  flex: 1;
+}
+
+.sale {
+  flex: 1;
+  margin-left: 30rpx;
+}
+
+.hottext {
+  margin-left: 10rpx
 }

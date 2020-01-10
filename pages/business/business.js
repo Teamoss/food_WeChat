@@ -194,6 +194,15 @@ Page({
     wx.navigateTo({
       url: '../cash/cash'
     })
+  },
+
+  //查看评论
+  getComment(){
+    const {detail} = this.data
+    let id = detail._id
+    wx.navigateTo({
+      url: './businessComment/businessComment?id='+id,
+    })
   }
 
 })

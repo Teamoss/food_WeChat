@@ -24,10 +24,12 @@ const connect = {
   findAllOrder: host + '/api/findAllOrder',
   //提交评论
   addComment: host + '/api/addComment',
-  //查找用户评论
+  //查看用户评论
   findComment: host + '/api/findComment',
   //修改评论
   editComment: host + '/api/editComment',
-  
+  //查看店铺评论
+  findAllComment: host + '/api/findAllComment',
+
 }
 module.exports = connect

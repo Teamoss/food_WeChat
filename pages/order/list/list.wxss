@@ -134,3 +134,7 @@ page {
   font-size: 24rpx
 }
 
+.loading {
+  width: 60rpx;
+  height: 60rpx;
+}
