@@ -37,9 +37,6 @@ Page({
           },
           success: res => {
             let orderList = res.data.data
-            orderList.length > 0 && orderList.forEach(item => {
-              item['food'] = JSON.parse(item.food)
-            })
             let total = res.data.total
             let page = Math.ceil(total / pageSize)
             let flag = page <= pageNo ? true : false
@@ -93,9 +90,6 @@ Page({
       },
       success: res => {
         let orderList = res.data.data
-        orderList.length > 0 && orderList.forEach(item => {
-          item['food'] = JSON.parse(item.food)
-        })
         let total = res.data.total
         let page = Math.ceil(total / pageSize)
         let flag = page <= pageNo ? true : false

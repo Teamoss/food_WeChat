@@ -58,9 +58,7 @@ Page({
       success: res => {
         let commentList = res.data.data
         commentList.length > 0 && commentList.forEach(item => {
-          item['userInfo'] = JSON.parse(item.userInfo)
           item['commentTime'] = this.formatTime(item.commentTime)
-          item.order['food'] = JSON.parse(item.order.food)
         })
         let total = res.data.total
         let page = Math.ceil(total / pageSize)
@@ -105,9 +103,7 @@ Page({
       success: res => {
         let commentList = res.data.data
         commentList.length > 0 && commentList.forEach(item => {
-          item['userInfo'] = JSON.parse(item.userInfo)
           item['commentTime'] = this.formatTime(item.commentTime)
-          item.order['food'] = JSON.parse(item.order.food)
         })
         let total = res.data.total
         let page = Math.ceil(total / pageSize)
