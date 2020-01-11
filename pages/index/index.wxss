@@ -93,3 +93,36 @@ page {
   margin-left: 300rpx;
   font-size: 28rpx
 }
+
+.fixed-top{
+  background: #f7d373;
+  position:fixed;
+  width:100%;
+  top:0;
+  display:flex;
+  z-index: 1;
+}
+.search-input{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 15rpx 28rpx;
+  transition:all 2s;
+  background-color: #fff;
+  border-radius: 38rpx;
+  height: 70rpx;
+  align-items: center;
+  padding-left: 50rpx
+}
+
+.placeholder{
+  color: #666;
+  font-size: 26rpx;
+  /* padding-left: 50rpx */
+}
+
+.seacrch {
+  width:40rpx;
+  height: 40rpx;
+  margin-right: 10rpx
+}

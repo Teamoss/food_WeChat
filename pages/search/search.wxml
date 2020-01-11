@@ -1,17 +1,13 @@
-<!-- 搜索 -->
 <view class="fixed-top">
-    <view class="search-input" catchtap="search">
-       <image src="../../images/icon/search.png" class="seacrch"></image>
-      <input placeholder='搜索商家'  placeholder-class='placeholder'></input>
-    </view>
+  <view class="search-input" >
+    <input placeholder='搜索商家' bindinput="bindKeyInput"   placeholder-class='placeholder'></input>
   </view>
+  <view class="btnView" >
+    <text class="search" catchtap="search">搜索</text>
+  </view>
+</view>
 
-<scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="scrolltolower" bindscroll="scroll" scroll-into-view="{{toView}}" lower-threshold="50">
-  <swiper/>
-  <menu/>
-  <view class="container">
-    <text class="title">推荐商家</text>
-  </view>
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="scrolltolower" bindscroll="scroll" scroll-into-view="{{toView}}" lower-threshold="100">
   <view class="marginTop">
     <block wx:for="{{businesList}}" wx:key="{{index}}">
       <view catchtap="toBusiness" data-item="{{item}}" data-id="{{index}}">

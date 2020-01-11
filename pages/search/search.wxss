@@ -1,0 +1,116 @@
+.fixed-top {
+  background: #f7d373;
+  position: fixed;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  top: 0;
+  display: flex;
+  z-index: 1;
+}
+
+.search-input {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 15rpx 28rpx;
+  transition: all 2s;
+  background-color: #fff;
+  border-radius: 38rpx;
+  height: 70rpx;
+  align-items: center;
+  padding-left: 50rpx;
+}
+
+.placeholder {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.search {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.btnView {
+  margin-right: 30rpx;
+}
+
+.marginTop {
+  margin-top: 90rpx;
+}
+
+.item {
+  display: flex;
+  /* align-items: center; */
+  padding: 20rpx;
+  background-color: white;
+  height: 100%;
+}
+
+.image {
+  width: 200rpx;
+  height: 200rpx;
+  flex: 2;
+  border-radius: 5rpx;
+}
+
+.message {
+  margin-left: 20rpx;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 5rpx;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  color: gray;
+  font-size: 26rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.number {
+  color: orangered;
+  margin-left: 6rpx;
+}
+
+.saleNumber {
+  color: #999;
+  margin-left: 300rpx;
+  font-size: 28rpx;
+}
+
+.noMore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+}
+
+.loading {
+  width: 60rpx;
+  height: 60rpx;
+}

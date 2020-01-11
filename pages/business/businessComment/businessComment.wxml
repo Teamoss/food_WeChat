@@ -24,6 +24,9 @@
         <image wx:for="{{item.order.food}}" wx:key="{{index}}" wx:for-item="imgItem" src="{{imgItem.imageUrl}}" class='imgFood'></image>
       </view>
       <text class="comment">{{item.comment}}</text>
+      <view class="businessCommentView" wx:if="{{item.businessComment}}">
+         <text class="comText" >商家回复: {{item.businessComment}}</text>
+      </view>
 
     </view>
 

@@ -30,6 +30,8 @@ const connect = {
   editComment: host + '/api/editComment',
   //查看店铺评论
   findAllComment: host + '/api/findAllComment',
+  //搜索店铺
+  searchBusiness: host + '/api/searchBusiness',
 
 }
 module.exports = connect

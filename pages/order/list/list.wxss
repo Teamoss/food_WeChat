@@ -98,8 +98,8 @@ page {
 }
 
 .food {
-  width: 60rpx;
-  height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
   margin-right: 20rpx
 }
 
@@ -122,7 +122,8 @@ page {
   border-radius: 50%;
 }
 .foodItem {
-  margin-bottom: 10rpx
+  margin-bottom: 10rpx;
+  margin-top: 10rpx
 }
 
 .orderView {

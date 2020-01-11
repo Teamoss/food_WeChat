@@ -1,11 +1,10 @@
 const app = getApp()
-const wxAuth = require('../../utils/wxAuth.js')
-const wxLogin = require('../../utils/wxLogin.js')
 import Connect from '../../service/address.js'
 
 Page({
 
   data: {
+    searchValue: null,
     businesList: [],
     pageSize: 8,
     pageNo: 1,
@@ -13,50 +12,59 @@ Page({
     loadingMore: false
   },
 
-  onLoad() {
+
+  onLoad(options) {
 
   },
+
 
   onShow() {
-    this.loadingInfo()
-    this.loadingData()
+
   },
 
-  //搜索商家
+  bindKeyInput: function(e) {
+    this.setData({
+      searchValue: e.detail.value
+    })
+  },
+
+  //搜索
   search() {
-    wx.navigateTo({
-      url: '/pages/search/search'
-    })
-  },
-
-  //加载数据
-  loadingData() {
     const {
-      pageSize,
-      pageNo
+      searchValue,
+      pageNo,
+      pageSize
     } = this.data
-    wx.request({
-      url: Connect.findAllBusiness,
-      method: 'POST',
-      data: {
-        pageSize,
-        pageNo
-      },
-      success: res => {
-        let businesList = res.data.data
-        let total = res.data.total
-        let page = Math.ceil(total / pageSize)
-        let flag = page <= pageNo ? true : false
-        this.setData({
-          businesList,
-          noMore: flag,
-          pageNo: flag ? 1 : this.data.pageNo + 1
-        })
-      },
-      fail: err => {
-        console.log(err);
-      }
-    })
+    if (searchValue) {
+      wx.request({
+        url: Connect.searchBusiness,
+        method: 'POST',
+        data: {
+          pageSize: 8,
+          pageNo: 1,
+          key: searchValue,
+        },
+        success: res => {
+          let businesList = res.data.data
+          let total = res.data.total
+          let page = Math.ceil(total / pageSize)
+          let flag = page <= pageNo ? true : false
+          this.setData({
+            businesList,
+            noMore: flag,
+            pageNo: flag ? 1 : this.data.pageNo + 1
+          })
+        },
+        fail: err => {
+          console.log(err);
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请输入搜索内容',
+        icon: 'none'
+      })
+    }
   },
 
   //加载更多数据
@@ -92,7 +100,6 @@ Page({
   },
 
 
-
   //滑到最底部加载更多
   scrolltolower() {
     const {
@@ -118,7 +125,5 @@ Page({
       url: '/pages/business/business?detail=' + detail,
     })
   },
-
-
 
 })
