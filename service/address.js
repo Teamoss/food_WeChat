@@ -6,7 +6,7 @@ const connect = {
   login: host + '/api/userLogin',
   //注册
   register: host + '/api/userRegister',
-  //获取所有商家
+  //获取所有商家  好评优先  销量最高查询商家
   findAllBusiness: host + '/api/findAllBusiness',
   //获取商家菜单
   findAllFood: host + '/api/findAllFood',

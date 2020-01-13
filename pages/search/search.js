@@ -22,7 +22,7 @@ Page({
 
   },
 
-  bindKeyInput: function(e) {
+  bindKeyInput(e) {
     this.setData({
       searchValue: e.detail.value
     })
@@ -61,7 +61,7 @@ Page({
       })
     } else {
       wx.showToast({
-        title: '请输入搜索内容',
+        title: '请输入搜索商家',
         icon: 'none'
       })
     }

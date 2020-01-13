@@ -10,7 +10,8 @@ Page({
     pageSize: 8,
     pageNo: 1,
     noMore: false,
-    loadingMore: false
+    loadingMore: false,
+    type: 1
   },
 
   onLoad() {
@@ -30,17 +31,19 @@ Page({
   },
 
   //加载数据
-  loadingData() {
+  loadingData(businessType) {
     const {
       pageSize,
-      pageNo
+      pageNo,
+      type
     } = this.data
     wx.request({
       url: Connect.findAllBusiness,
       method: 'POST',
       data: {
         pageSize,
-        pageNo
+        pageNo,
+        type: businessType ? businessType : type
       },
       success: res => {
         let businesList = res.data.data
@@ -64,14 +67,16 @@ Page({
     const {
       pageSize,
       pageNo,
-      loadingMore
+      loadingMore,
+      type
     } = this.data
     wx.request({
       url: Connect.findAllBusiness,
       method: 'POST',
       data: {
         pageSize,
-        pageNo
+        pageNo,
+        type
       },
       success: res => {
         let businesList = res.data.data
@@ -91,7 +96,29 @@ Page({
     })
   },
 
-
+  //加载缓存用户信息 
+  loadingInfo() {
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        console.log('res', res)
+      },
+      fail: function(err) {
+        wxAuth(() => {
+          wxLogin((data) => {
+            wx.setStorage({
+              key: 'userInfo',
+              data: data,
+            })
+          })
+        }, () => {
+          wx.navigateTo({
+            url: '../login/login'
+          })
+        });
+      }
+    })
+  },
 
   //滑到最底部加载更多
   scrolltolower() {
@@ -116,6 +143,15 @@ Page({
     let detail = JSON.stringify(business)
     wx.navigateTo({
       url: '/pages/business/business?detail=' + detail,
+    })
+  },
+
+ //推荐商家 好评优先 销量最高排序
+  loadingBusiness(e) {
+    let businessType = e.target.dataset.type
+    this.loadingData(businessType)
+    this.setData({
+      type: businessType
     })
   },
 

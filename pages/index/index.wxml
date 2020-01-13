@@ -1,16 +1,20 @@
 <!-- 搜索 -->
 <view class="fixed-top">
-    <view class="search-input" catchtap="search">
-       <image src="../../images/icon/search.png" class="seacrch"></image>
-      <input placeholder='搜索商家'  placeholder-class='placeholder'></input>
-    </view>
+  <view class="search-input" catchtap="search">
+    <image src="../../images/icon/search.png" class="seacrch"></image>
+    <input placeholder='搜索商家' placeholder-class='placeholder'></input>
   </view>
+</view>
 
 <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="scrolltolower" bindscroll="scroll" scroll-into-view="{{toView}}" lower-threshold="50">
   <swiper/>
   <menu/>
   <view class="container">
-    <text class="title">推荐商家</text>
+    <view class="titleView">
+      <text class="title" catchtap="loadingBusiness" data-type='1'>推荐商家</text>
+      <text class="title" catchtap="loadingBusiness" data-type='3'>好评优先</text>
+      <text class="title" catchtap="loadingBusiness" data-type='2'>销量最高</text>
+    </view>
   </view>
   <view class="marginTop">
     <block wx:for="{{businesList}}" wx:key="{{index}}">
