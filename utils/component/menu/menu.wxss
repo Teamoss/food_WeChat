@@ -6,17 +6,18 @@
 }
 .menu-item{
   display: flex;
-  padding-top: 16rpx;
+  padding-top: 10rpx;
 }
 .menu-item:last-child{
-  padding-bottom: 16rpx;
+  padding-bottom: 10rpx;
 }
 .menu-name{
   color: #333;
   font-size: 28rpx;
+  margin-top: 5rpx
 }
 .menu-item>view{
-  flex:0 0 25%;
+  flex:0 0 20%;
   text-align: center;
 }
 .menu image{

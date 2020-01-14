@@ -66,10 +66,16 @@ page {
   border-radius: 50%;
 }
 
+.collection {
+  width: 50rpx;
+  height: 50rpx;
+}
+
 .nameView {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between
 }
 
 .hotSaleView {
@@ -254,7 +260,7 @@ page {
 }
 
 .comment {
-  flex: 1;
+  flex: 2;
 }
 
 .sale {
@@ -264,4 +270,10 @@ page {
 
 .hottext {
   margin-left: 10rpx
+}
+
+.titlec {
+  display: flex;
+  flex-direction: row;
+  align-items: center
 }

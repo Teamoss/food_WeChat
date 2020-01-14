@@ -11,7 +11,9 @@ Page({
     noMore: false,
     loadingMore: false,
     goodSum: 0,
-    id: null
+    id: null,
+    isCollection: false,
+    openid:null
   },
 
   onLoad(options) {
@@ -21,11 +23,89 @@ Page({
       id: detail._id
     })
     this.loadingGoodList(detail._id)
+    wx.getStorage({
+      key: 'userInfo',
+      success: res => {
+        let openid = res.data.openid
+        this.setData({
+          openid
+        })
+        this.collection(detail._id, openid)
+      },
+    })
   },
 
 
   onShow() {
 
+  },
+
+  //添加取消收藏
+  changeCollection() {
+    const {
+      id, openid, isCollection
+    } = this.data
+    if (!isCollection){
+       wx.request({
+         url: Connect.addCollection,
+         method:'POST',
+         data:{
+           openid,
+           business: id
+         },
+         success:res=>{
+          if(res.data&& res.data.code ===2000){
+            wx.showToast({
+              title: res.data.message,
+              icon: 'success'
+            })
+            this.collection(id, openid)
+          }
+         }
+       })
+    }else {
+      wx.request({
+        url: Connect.deleteCollection,
+        method: 'POST',
+        data: {
+          openid,
+          business: id
+        },
+        success: res => {
+          if (res.data && res.data.code === 2000) {
+            wx.showToast({
+              title: res.data.message,
+              icon: 'success'
+            })
+            this.collection(id, openid)
+          }
+        }
+      })
+    }
+
+  },
+
+  //查询收藏状态
+  collection(business, openid) {
+    wx.request({
+      url: Connect.collection,
+      method: 'POST',
+      data: {
+        business,
+        openid
+      },
+      success: res => {
+        if (res.data && res.data.code === 2000) {
+          this.setData({
+            isCollection: true
+          })
+        } else {
+          this.setData({
+            isCollection: false
+          })
+        }
+      }
+    })
   },
 
   //加载商家菜单
@@ -181,7 +261,7 @@ Page({
         arr.push(item)
       }
     })
-    if (arr.length==0){
+    if (arr.length == 0) {
       wx.showToast({
         title: '请选择购买商品',
         icon: 'none'
@@ -197,11 +277,13 @@ Page({
   },
 
   //查看评论
-  getComment(){
-    const {detail} = this.data
+  getComment() {
+    const {
+      detail
+    } = this.data
     let id = detail._id
     wx.navigateTo({
-      url: './businessComment/businessComment?id='+id,
+      url: './businessComment/businessComment?id=' + id,
     })
   }
 

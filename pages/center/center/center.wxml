@@ -7,6 +7,7 @@
   </view>
   <view class='list'>
     <navigator class='item' hover-class="none" url='../../address/list/list'>我的地址</navigator>
-    <navigator class='item' hover-class="none">帮助和反馈</navigator>
+    <view class='item' hover-class="none" bindtap="toOrderList">我的订单</view>
+    <view class='item' hover-class="none" bindtap="collection">收藏夹</view>
   </view>
 </view>

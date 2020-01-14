@@ -13,6 +13,20 @@ Page({
     this.loadingInfo()
   },
 
+ //订单页
+  toOrderList(){
+    wx.switchTab({
+      url: '/pages/order/list/list'
+    })
+  },
+
+  //收藏页
+  collection(){
+    wx.navigateTo({
+      url: '../../collection/collection'
+    })
+  },
+
   //加载缓存用户信息
   loadingInfo() {
     wx.getStorage({

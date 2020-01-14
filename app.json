@@ -16,7 +16,8 @@
     "utils/component/menu/menu",
     "pages/business/business",
     "pages/comment/updateComment/updateComment",
-    "pages/webView/webView"
+    "pages/webView/webView",
+    "pages/collection/collection"
   ],
   "window": {
     "backgroundTextStyle": "light",

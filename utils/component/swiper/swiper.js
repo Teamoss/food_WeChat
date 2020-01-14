@@ -1,4 +1,3 @@
-// utils/component/swiper/swiper.js
 Component({
   onShareAppMessage() {
     return {
@@ -7,19 +6,24 @@ Component({
     }
   },
   properties: {
-    businesList: { // 属性名
-      type: Array, 
-      value: '', 
-      observer: function (newVal, oldVal) { } 
+    businesList: {
+      type: Array,
+      value: '',
+      observer: function(newVal, oldVal) {}
     },
-  
+
   },
 
   data: {
-    imgUrls: [
-      '../../../images/swiper/1.jpg',
-      '../../../images/swiper/2.jpg',
-      '../../../images/swiper/3.jpg',
+    imgUrls: [{
+        swiper: '../../../images/swiper/1.jpg'
+      },
+      {
+        swiper: '../../../images/swiper/2.jpg'
+      },
+      {
+        swiper: '../../../images/swiper/3.jpg'
+      },
     ],
     indicatorDots: true,
     autoplay: true,
@@ -27,23 +31,25 @@ Component({
     duration: 500,
   },
 
-  attached:{
-    
+  attached() {
+
   },
 
   methods: {
     swiperToDetail(e) {
-      let item = e.currentTarget.dataset.item
-      console.log(this.data.businesList)
-      // wx.navigateTo({
-      //   url: '../../pages/webView/webView?banner_url=' + this.data.url
-      // })
-    },
-    loadingData(){
-      this.setData({
+      const {
         businesList
-      })
-    }
+      } = this.data
+      if (businesList && businesList.length > 0) {
+        let item = e.currentTarget.dataset.item
+        let detail = JSON.stringify(item)
+        wx.navigateTo({
+          url: '/pages/business/business?detail=' + detail,
+        })
+      }
+
+    },
+
   }
 
 

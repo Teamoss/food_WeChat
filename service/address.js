@@ -36,6 +36,13 @@ const connect = {
   findAllComment: host + '/api/findAllComment',
   //搜索店铺
   searchBusiness: host + '/api/searchBusiness',
+  //查询店铺收藏状态
+  collection: host + '/api/collection',
+  //添加收藏
+  addCollection: host + '/api/addCollection',
+  //取消收藏
+  deleteCollection: host + '/api/deleteCollection',
+
 
 }
 module.exports = connect

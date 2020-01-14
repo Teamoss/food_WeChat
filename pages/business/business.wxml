@@ -3,8 +3,11 @@
     <image src="{{detail.swiper}}" class="swiper" />
     <view class="container">
       <view class="nameView">
-        <image src="{{detail.logo}}" class="logo"></image>
-        <text class="name">{{detail.business}}</text>
+        <view class="titlec">
+          <image src="{{detail.logo}}" class="logo"></image>
+          <text class="name">{{detail.business}}</text>
+        </view>
+        <image src="{{isCollection?'../../images/icon/collection1.png':'../../images/icon/collection.png'}}" class="collection"  catchtap="changeCollection"></image>
       </view>
       <view class="row">
         <text class="adress">地址:{{detail.address}}</text>
@@ -21,12 +24,12 @@
         <image src="../../images/icon/hotSale.jpg" class="hotSale" />
         <text class="hottext">热销</text>
       </view>
-      <view  class="comment">
+      <view class="comment">
         <text class="comment" bindtap="getComment">评论 {{detail.commentNumber}}</text>
       </view>
-      <view  class="sale">
+      <!-- <view  class="sale">
         <text class="sale">销量 {{detail.saleNumber}}</text>
-      </view>
+      </view> -->
     </view>
     <view class="list">
       <block wx:for="{{goodList}}" wx:key="{{index}}">
