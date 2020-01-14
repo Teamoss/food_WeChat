@@ -1,1 +1,28 @@
-/* pages/collection/collection.wxss */
+page{
+  height: 100%;
+  background-color: #fff
+}
+.marginTop {
+  margin-top: 10rpx;
+}
+.item {
+  display: flex;
+  /* align-items: center; */
+  padding: 20rpx;
+  background-color: white;
+  height: 100%;
+}
+.image {
+  width: 200rpx;
+  height: 200rpx;
+  flex: 2;
+  border-radius: 5rpx;
+}
+
+.message {
+  margin-left: 20rpx;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

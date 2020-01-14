@@ -42,7 +42,8 @@ const connect = {
   addCollection: host + '/api/addCollection',
   //取消收藏
   deleteCollection: host + '/api/deleteCollection',
-
+  //查询用户收藏
+  findAllCollection: host + '/api/findAllCollection',
 
 }
 module.exports = connect
