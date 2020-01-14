@@ -11,10 +11,31 @@ Page({
     pageNo: 1,
     noMore: false,
     loadingMore: false,
-    type: 1
+    type: 1,
+    location:null
   },
 
   onLoad() {
+    wx.getLocation({
+      type: 'wgs84',
+      success: res => {
+        let locationString = res.latitude + "," + res.longitude;
+        wx.request({
+          url: 'http://apis.map.qq.com/ws/geocoder/v1/',
+          data: {
+            "key": "2LNBZ-OMPLR-FSFWP-WWJU7-L5HWQ-WYFAF",
+            "location": locationString
+          },
+          method: 'GET',
+          success: r => {
+            let location = r.data.result.address
+            this.setData({
+              location
+            })
+          }
+        });
+      }
+    })
 
   },
 
@@ -146,7 +167,7 @@ Page({
     })
   },
 
- //推荐商家 好评优先 销量最高排序
+  //推荐商家 好评优先 销量最高排序
   loadingBusiness(e) {
     let businessType = e.target.dataset.type
     this.loadingData(businessType)

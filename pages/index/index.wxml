@@ -1,5 +1,9 @@
 <!-- 搜索 -->
 <view class="fixed-top">
+  <view class="locationView">
+    <image src="../../images/icon/location.png" class="locationImg"></image>
+    <text class="location">{{location?location:'暂无法定位'}}</text>
+  </view>
   <view class="search-input" catchtap="search">
     <image src="../../images/icon/search.png" class="seacrch"></image>
     <input placeholder='搜索商家' placeholder-class='placeholder'></input>
@@ -7,7 +11,7 @@
 </view>
 
 <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="scrolltolower" bindscroll="scroll" scroll-into-view="{{toView}}" lower-threshold="50">
-  <swiper/>
+  <swiper businesList='{{businesList}}' />
   <menu/>
   <view class="container">
     <view class="titleView">

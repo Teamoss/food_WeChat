@@ -13,7 +13,7 @@ page {
 .title {
   font-size: 36rpx;
   font-weight: 'bold';
-  flex: 1
+  flex: 1;
 }
 
 .marginTop {
@@ -90,45 +90,65 @@ page {
 }
 
 .saleNumber {
-  color: #999999;
+  color: #999;
   margin-left: 300rpx;
-  font-size: 28rpx
+  font-size: 28rpx;
 }
 
-.fixed-top{
+.fixed-top {
   background: #f7d373;
-  position:fixed;
-  width:100%;
-  top:0;
-  display:flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  /* display:flex; */
   z-index: 1;
 }
-.search-input{
+
+.search-input {
   display: flex;
   flex-direction: row;
   flex: 1;
-  margin: 15rpx 28rpx;
-  transition:all 2s;
+  margin: 10rpx 18rpx 15rpx 18rpx;
+  transition: all 2s;
   background-color: #fff;
   border-radius: 38rpx;
   height: 70rpx;
   align-items: center;
-  padding-left: 50rpx
+  padding-left: 50rpx;
 }
 
-.placeholder{
+.placeholder {
   color: #666;
   font-size: 26rpx;
   /* padding-left: 50rpx */
 }
 
 .seacrch {
-  width:40rpx;
+  width: 40rpx;
   height: 40rpx;
-  margin-right: 10rpx
+  margin-right: 10rpx;
 }
+
 .titleView {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.locationImg {
+  width: 30rpx;
+  height: 35rpx;
+  margin-left: 18rpx
+}
+
+.locationView {
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+.location {
+  font-size: 26rpx;
+  margin-left: 8rpx;
+  color:#666
 }

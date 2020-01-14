@@ -1,0 +1,3 @@
+<view class="container">
+  <web-view src="{{banner_url}}"></web-view>
+</view>

@@ -199,7 +199,7 @@ page {
   height: 40rpx;
   text-align: center;
   border: 2rpx lightblue solid;
-  margin-right: 8rpx;
+  margin-right: 12rpx;
 }
 
 .incre {
@@ -213,6 +213,7 @@ page {
 .number {
   font-size: 32rpx;
   color: #333;
+  margin-left: 5rpx
 }
 
 .noMore {
@@ -233,6 +234,7 @@ page {
   display: flex;
   flex-direction: row;
   flex: 5;
+  align-items: center
 }
 
 .price {

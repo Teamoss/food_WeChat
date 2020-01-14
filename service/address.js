@@ -1,5 +1,9 @@
 //主机地址
-const host = 'http://localhost:5000'
+// const host = 'http://localhost:5000'
+
+//真机调试地址
+const host = 'http://192.168.1.167:5000'
+
 const connect = {
   host,
   //登录

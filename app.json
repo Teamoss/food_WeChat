@@ -15,7 +15,8 @@
     "utils/component/swiper/swiper",
     "utils/component/menu/menu",
     "pages/business/business",
-    "pages/comment/updateComment/updateComment"
+    "pages/comment/updateComment/updateComment",
+    "pages/webView/webView"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -48,5 +49,10 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "一个外卖将获取您的地理位置"
+    }
+  }
 }
