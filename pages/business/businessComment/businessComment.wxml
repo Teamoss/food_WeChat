@@ -16,9 +16,9 @@
         <text class="date">{{item.commentTime}}</text>
       </view>
       <view class="foodList">
-        <view wx:for="{{item.order.food}}" wx:key="{{index}}" wx:for-item="foodItem">
+        <text wx:for="{{item.order.food}}" wx:key="{{index}}" wx:for-item="foodItem">
           <text class="food">{{foodItem.name}}</text>
-        </view>
+        </text>
       </view>
       <view class="imgview">
         <image wx:for="{{item.order.food}}" wx:key="{{index}}" wx:for-item="imgItem" src="{{imgItem.imageUrl}}" class='imgFood'></image>

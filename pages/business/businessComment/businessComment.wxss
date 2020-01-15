@@ -71,8 +71,8 @@ page {
 }
 
 .imgFood {
-  width: 170rpx;
-  height: 170rpx;
+  width: 140rpx;
+  height: 140rpx;
   border-radius: 5rpx;
   margin: 0 20rpx 10rpx 0;
 }
