@@ -58,7 +58,9 @@ Page({
 
   //选择位置
   chosenMap() {
-    const { type} = this.data
+    const {
+      type
+    } = this.data
     wx.chooseLocation({
       success: res => {
         let locationString = res.latitude + "," + res.longitude;
@@ -212,8 +214,11 @@ Page({
 
   //推荐商家 好评优先 销量最高排序
   loadingBusiness(e) {
+    const {
+      cityKey
+    } = this.data
     let businessType = e.target.dataset.type
-    this.loadingData(businessType)
+    this.loadingData(businessType, cityKey)
     this.setData({
       type: businessType
     })
