@@ -1,8 +1,8 @@
 <!-- 搜索 -->
 <view class="fixed-top">
-  <view class="locationView">
+  <view class="locationView" bindtap="chosenMap">
     <image src="../../images/icon/location.png" class="locationImg"></image>
-    <text class="location">{{location?location:'暂无法定位'}}</text>
+    <text  class="location">{{location?location:'暂无法定位'}}</text>
   </view>
   <view class="search-input" catchtap="search">
     <image src="../../images/icon/search.png" class="seacrch"></image>
@@ -43,8 +43,11 @@
       </view>
     </block>
   </view>
-  <view class="noMore" wx:if="{{noMore}}">
+  <view class="noMore" wx:if="{{noMore&&businesList.length!=0}}">
     <text class="content">没有更多了。。</text>
+  </view>
+  <view class="noMore" wx:if="{{businesList.length==0}}">
+    <text class="content">暂无商家入驻。。</text>
   </view>
   <view class="noMore" wx:if="{{loadingMore}}">
     <image src="../../images/icon/loading.gif" class="loading"></image>

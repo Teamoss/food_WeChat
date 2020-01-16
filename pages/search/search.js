@@ -35,6 +35,7 @@ Page({
       pageNo,
       pageSize
     } = this.data
+    let cityKey = app.globalData.cityKey
     if (searchValue) {
       wx.request({
         url: Connect.searchBusiness,
@@ -43,8 +44,10 @@ Page({
           pageSize: 8,
           pageNo: 1,
           key: searchValue,
+          cityKey
         },
         success: res => {
+          console.log(res)
           let businesList = res.data.data
           let total = res.data.total
           let page = Math.ceil(total / pageSize)

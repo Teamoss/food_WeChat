@@ -34,8 +34,11 @@
     </view>
   </view>
 
-  <view class="noMore" wx:if="{{noMore}}">
+  <view class="noMore" wx:if="{{noMore&&orderList.length!=0}}">
     <text class="content">没有更多了。。</text>
+  </view>
+   <view class="noMore" wx:if="{{orderList.length==0}}">
+    <text class="content">暂无订单，赶快去下单吧~~~</text>
   </view>
   <view class="noMore" wx:if="{{loadingMore}}">
     <image src="../../../images/icon/loading.gif" class="loading"></image>

@@ -12,10 +12,24 @@ Page({
     noMore: false,
     loadingMore: false,
     type: 1,
-    location:null
+    location: null,
+    cityKey: null
   },
 
   onLoad() {
+    this.loadingInfo()
+    this.location()
+  },
+
+  onShow() {
+    this.loadingData()
+  },
+
+  //定位
+  location() {
+    const {
+      type
+    } = this.data
     wx.getLocation({
       type: 'wgs84',
       success: res => {
@@ -28,20 +42,46 @@ Page({
           },
           method: 'GET',
           success: r => {
+            let cityKey = r.data.result.address_component.district
             let location = r.data.result.address
+            this.loadingData(type, cityKey)
             this.setData({
-              location
+              location,
+              cityKey
             })
+            app.globalData.cityKey = cityKey;
           }
         });
       }
     })
-
   },
 
-  onShow() {
-    this.loadingInfo()
-    this.loadingData()
+  //选择位置
+  chosenMap() {
+    const { type} = this.data
+    wx.chooseLocation({
+      success: res => {
+        let locationString = res.latitude + "," + res.longitude;
+        wx.request({
+          url: 'http://apis.map.qq.com/ws/geocoder/v1/',
+          data: {
+            "key": "2LNBZ-OMPLR-FSFWP-WWJU7-L5HWQ-WYFAF",
+            "location": locationString
+          },
+          method: 'GET',
+          success: r => {
+            let cityKey = r.data.result.address_component.district
+            let location = r.data.result.address
+            this.loadingData(type, cityKey)
+            this.setData({
+              location,
+              cityKey
+            })
+            app.globalData.cityKey = cityKey;
+          }
+        });
+      },
+    })
   },
 
   //搜索商家
@@ -52,7 +92,7 @@ Page({
   },
 
   //加载数据
-  loadingData(businessType) {
+  loadingData(businessType, cityKey) {
     const {
       pageSize,
       pageNo,
@@ -64,7 +104,8 @@ Page({
       data: {
         pageSize,
         pageNo,
-        type: businessType ? businessType : type
+        type: businessType ? businessType : type,
+        cityKey
       },
       success: res => {
         let businesList = res.data.data
@@ -89,7 +130,8 @@ Page({
       pageSize,
       pageNo,
       loadingMore,
-      type
+      type,
+      cityKey
     } = this.data
     wx.request({
       url: Connect.findAllBusiness,
@@ -97,7 +139,8 @@ Page({
       data: {
         pageSize,
         pageNo,
-        type
+        type,
+        cityKey
       },
       success: res => {
         let businesList = res.data.data

@@ -17,7 +17,10 @@
         </view>
       </view>
       <text class="des">介绍：{{detail.content}}</text>
-      <text class="des">联系方式：{{detail.phone}}</text>
+      <view class="row">
+        <text class="des">联系方式：{{detail.phone}}</text>
+         <text class="sale">销量 {{detail.saleNumber}}</text>
+      </view>
     </view>
     <view class="hotSaleView">
       <view class="hotView">
@@ -27,9 +30,6 @@
       <view class="comment">
         <text class="comment" bindtap="getComment">评论 {{detail.commentNumber}}</text>
       </view>
-      <!-- <view  class="sale">
-        <text class="sale">销量 {{detail.saleNumber}}</text>
-      </view> -->
     </view>
     <view class="list">
       <block wx:for="{{goodList}}" wx:key="{{index}}">
