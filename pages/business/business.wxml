@@ -60,8 +60,11 @@
         </view>
       </block>
     </view>
-    <view class="noMore" wx:if="{{noMore}}">
+    <view class="noMore" wx:if="{{noMore&&goodList.length!=0}}">
       <text class="content">没有更多了。。</text>
+    </view>
+    <view class="noMore" wx:if="{{goodList.length==0}}">
+      <text class="content">商家未上传菜单，换家看看吧~~~</text>
     </view>
     <view class="noMore" wx:if="{{loadingMore}}">
       <image src="../../images/icon/loading.gif" class="loading"></image>

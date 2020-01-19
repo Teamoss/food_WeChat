@@ -1,8 +1,8 @@
 //主机地址
-// const host = 'http://localhost:5000'
+const host = 'http://localhost:5000'
 
 //真机调试地址
-const host = 'http://192.168.1.167:5000'
+// const host = 'http://192.168.1.167:5000'
 
 const connect = {
   host,
@@ -14,6 +14,8 @@ const connect = {
   findAllBusiness: host + '/api/findAllBusiness',
   //获取商家菜单
   findAllFood: host + '/api/findAllFood',
+  //获取商家详细信息
+  getDetailBusiness: host + '/api/getBusinessMessage',
   //获取用户收货地址
   getUserAddress: host + '/api/getUserAddress',
   //添加用户收货地址

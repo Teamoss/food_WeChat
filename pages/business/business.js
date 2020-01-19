@@ -23,6 +23,7 @@ Page({
       id: detail._id
     })
     this.loadingGoodList(detail._id)
+    this.getDetailBusiness(detail._id)
     wx.getStorage({
       key: 'userInfo',
       success: res => {
@@ -35,10 +36,33 @@ Page({
     })
   },
 
+  
 
-  onShow() {
-
+  //刷新商家信息
+  getDetailBusiness(id){
+    wx.request({
+      url: Connect.getDetailBusiness,
+      method: 'POST',
+      data: {
+        userID: id
+      },
+      success: res => {
+        if(res.data && res.data.code ===2000){
+          let detail = res.data.userInfo
+          let addr = ''
+          detail.city.forEach(item=>{
+            addr += item
+          })
+          detail.address = detail.address ? addr + detail.address: addr
+           this.setData({
+             detail
+           })
+        }
+      }
+    })
   },
+
+
 
   //添加取消收藏
   changeCollection() {
