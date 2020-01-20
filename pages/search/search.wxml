@@ -31,13 +31,10 @@
       </view>
     </block>
   </view>
-  <view class="noMore" wx:if="{{noMore&&businesList.length!=0}}">
+  <view class="noMore" wx:if="{{businesList.length!=0}}">
     <text class="content">没有更多了。。</text>
   </view>
-  <view class="noMore" wx:if="{{businesList.length==0}}">
+  <!-- <view class="noMore" wx:if="{{businesList.length==0}}">
     <text class="content">暂无结果，快试试搜索其他商家吧~~~</text>
-  </view>
-  <view class="noMore" wx:if="{{loadingMore}}">
-    <image src="../../images/icon/loading.gif" class="loading"></image>
-  </view>
+  </view> -->
 </scroll-view>

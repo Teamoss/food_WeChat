@@ -152,3 +152,20 @@ page {
   margin-left: 8rpx;
   color:#666
 }
+.titleView {
+ flex:1
+}
+.active {
+  height: 2rpx;
+  width:140rpx;
+  background-color: red;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx
+}
+.noactive {
+  height: 2rpx;
+  width:140rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx
+}

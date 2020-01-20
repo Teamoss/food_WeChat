@@ -13,7 +13,27 @@ Page({
     loadingMore: false,
     type: 1,
     location: null,
-    cityKey: null
+    cityKey: null,
+    typeArr: [{
+        index: 0,
+        type: 1,
+        title: '推荐商家',
+        active:true
+      },
+      {
+        index: 1,
+        type: 2,
+        title: '好评优先',
+        active: false
+      },
+      {
+        index: 2,
+        type: 3,
+        title: '销量最高',
+        active: false
+      },
+    ],
+    type: 1,
   },
 
   onLoad() {
@@ -215,12 +235,22 @@ Page({
   //推荐商家 好评优先 销量最高排序
   loadingBusiness(e) {
     const {
-      cityKey
+      cityKey,
+      typeArr
     } = this.data
-    let businessType = e.target.dataset.type
-    this.loadingData(businessType, cityKey)
+    let item = e.target.dataset.item
+    this.loadingData(item.type, cityKey)
+    let arr = typeArr
+    arr.forEach(i=>{
+      if (i.type == item.type) {
+        i['active'] = true
+      }else {
+        i['active'] = false
+      }
+    })
     this.setData({
-      type: businessType
+      type: item.type,
+      typeArr:arr
     })
   },
 

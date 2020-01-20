@@ -2,7 +2,7 @@
 <view class="fixed-top">
   <view class="locationView" bindtap="chosenMap">
     <image src="../../images/icon/location.png" class="locationImg"></image>
-    <text  class="location">{{location?location:'暂无法定位'}}</text>
+    <text class="location">{{location?location:'暂无法定位'}}</text>
   </view>
   <view class="search-input" catchtap="search">
     <image src="../../images/icon/search.png" class="seacrch"></image>
@@ -15,9 +15,13 @@
   <menu/>
   <view class="container">
     <view class="titleView">
-      <text class="title" catchtap="loadingBusiness" data-type='1'>附近商家</text>
-      <text class="title" catchtap="loadingBusiness" data-type='3'>好评优先</text>
-      <text class="title" catchtap="loadingBusiness" data-type='2'>销量最高</text>
+      <view wx:for="{{typeArr}}" class="titleView" wx:key="{{index}}">
+        <view >
+          <text class="title" catchtap="loadingBusiness" data-item="{{item}}">{{item.title}}</text>
+          <view class="active" wx:if="{{item.active}}"></view>
+          <view class="noactive" wx:else="{{item.active}}"></view>
+        </view>
+      </view>
     </view>
   </view>
   <view class="marginTop">
@@ -47,7 +51,7 @@
     <text class="content">没有更多了。。</text>
   </view>
   <view class="noMore" wx:if="{{businesList.length==0}}">
-    <text class="content">暂无商家入驻。。</text>
+    <text class="content">地区暂无商家入驻。。</text>
   </view>
   <view class="noMore" wx:if="{{loadingMore}}">
     <image src="../../images/icon/loading.gif" class="loading"></image>
